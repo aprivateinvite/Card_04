@@ -1,19 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aguarde...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aguarde... estamos preparando tudo para você.</title>
+
+  <!-- ═══════════════════════════════════════════════
+       GOOGLE ANALYTICS — substitua pelo seu ID
+  ════════════════════════════════════════════════ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- ═══════════════════════════════════════════════
+       OPEN GRAPH / TWITTER CARD
+       A imagem deve estar em: /card/card-image.jpg
+       Substitua SEU-USUARIO pelo seu usuário do GitHub
+  ════════════════════════════════════════════════ -->
+  <meta property="og:title"       content="Aguarde... estamos preparando tudo para você." />
+  <meta property="og:description" content="Oferta exclusiva preparada especialmente para você." />
+  <meta property="og:image"       content="https://aprivateinvite.github.io/Card_04/card/card-image.jpg" />
+  <meta property="og:url"         content="https://aprivateinvite.github.io/Card_04/" />
+  <meta property="og:type"        content="website" />
+
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Aguarde... estamos preparando tudo para você." />
+  <meta name="twitter:description" content="Oferta exclusiva preparada especialmente para você." />
+  <meta name="twitter:image"       content="https://aprivateinvite.github.io/Card_04/card/card-image.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --gold: #c9a84c;
+      --gold:       #c9a84c;
       --gold-light: #e8c97a;
-      --gold-dim: rgba(201,168,76,0.15);
-      --bg: #0a0a0a;
+      --gold-dim:   rgba(201,168,76,0.15);
+      --bg:         #0a0a0a;
     }
 
     html, body {
@@ -24,53 +53,41 @@
       overflow: hidden;
     }
 
-    /* Subtle noise texture overlay */
     body::before {
       content: '';
-      position: fixed;
-      inset: 0;
+      position: fixed; inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
       background-size: 200px 200px;
-      pointer-events: none;
-      z-index: 0;
+      pointer-events: none; z-index: 0;
     }
 
-    /* Radial glow at center */
     body::after {
       content: '';
-      position: fixed;
-      inset: 0;
+      position: fixed; inset: 0;
       background: radial-gradient(ellipse 60% 50% at 50% 55%, rgba(201,168,76,0.07) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
+      pointer-events: none; z-index: 0;
     }
 
     .container {
-      position: relative;
-      z-index: 1;
+      position: relative; z-index: 1;
       height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0;
       padding: 2rem;
     }
 
-    /* Icon / logo mark */
     .icon-wrap {
       margin-bottom: 2.4rem;
       opacity: 0;
       animation: fadeUp 0.8s ease forwards 0.2s;
     }
-
     .icon-wrap svg {
-      width: 48px;
-      height: 48px;
+      width: 48px; height: 48px;
       filter: drop-shadow(0 0 12px rgba(201,168,76,0.5));
     }
 
-    /* Headline */
     .headline {
       font-size: clamp(1.25rem, 4vw, 1.85rem);
       font-weight: 300;
@@ -82,13 +99,8 @@
       max-width: 560px;
       line-height: 1.5;
     }
+    .headline span { color: var(--gold-light); font-weight: 600; }
 
-    .headline span {
-      color: var(--gold-light);
-      font-weight: 600;
-    }
-
-    /* Sub-text */
     .subtext {
       margin-top: 0.75rem;
       font-size: clamp(0.75rem, 2vw, 0.9rem);
@@ -101,7 +113,6 @@
       animation: fadeUp 0.8s ease forwards 0.65s;
     }
 
-    /* Progress track */
     .progress-wrap {
       margin-top: 3rem;
       width: min(380px, 85vw);
@@ -126,13 +137,10 @@
       transition: width 0.12s linear;
     }
 
-    /* Shimmer sweep on bar */
     .progress-bar::after {
       content: '';
-      position: absolute;
-      top: 0; right: 0;
-      width: 60px;
-      height: 100%;
+      position: absolute; top: 0; right: 0;
+      width: 60px; height: 100%;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
       animation: shimmer 1.2s linear infinite;
     }
@@ -144,7 +152,6 @@
       100% { transform: translateX(60px); opacity: 0; }
     }
 
-    /* Percentage label */
     .progress-label {
       margin-top: 1rem;
       text-align: right;
@@ -155,18 +162,14 @@
       font-variant-numeric: tabular-nums;
     }
 
-    /* Dots loader */
     .dots {
       margin-top: 2.5rem;
-      display: flex;
-      gap: 8px;
+      display: flex; gap: 8px;
       opacity: 0;
       animation: fadeUp 0.8s ease forwards 1s;
     }
-
     .dot {
-      width: 5px;
-      height: 5px;
+      width: 5px; height: 5px;
       border-radius: 50%;
       background: var(--gold-dim);
       animation: pulse 1.4s ease-in-out infinite;
@@ -179,16 +182,12 @@
       50%       { background: var(--gold);     transform: scale(1.4); }
     }
 
-    /* Fade + slide up entrance */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* Final fade-out before redirect */
-    .fade-out {
-      animation: fadeOut 0.7s ease forwards !important;
-    }
+    .fade-out { animation: fadeOut 0.7s ease forwards !important; }
     @keyframes fadeOut {
       to { opacity: 0; transform: scale(0.97); }
     }
@@ -198,7 +197,6 @@
 
 <div class="container" id="root">
 
-  <!-- Icon -->
   <div class="icon-wrap">
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="24" r="23" stroke="#c9a84c" stroke-width="1.5" stroke-dasharray="4 3"/>
@@ -206,11 +204,9 @@
     </svg>
   </div>
 
-  <!-- Headline (filled by JS) -->
   <div class="headline" id="headline"></div>
   <div class="subtext"  id="subtext"></div>
 
-  <!-- Progress -->
   <div class="progress-wrap">
     <div class="progress-track">
       <div class="progress-bar" id="bar"></div>
@@ -218,7 +214,6 @@
     <div class="progress-label" id="pct">0%</div>
   </div>
 
-  <!-- Dots -->
   <div class="dots">
     <div class="dot"></div>
     <div class="dot"></div>
@@ -228,13 +223,16 @@
 </div>
 
 <script>
-  // ─── CONFIG ──────────────────────────────────────────────────────────────
-  const AFFILIATE_URL   = 'https://t.ajrkmx1.com/205192/8780/0?aff_sub5=SF_006OG000004lmDN'; // ← substitua aqui
-  const DURATION_MS     = 3500;   // duração total da barra (ms)
-  const REDIRECT_DELAY  = 400;    // pausa após 100% antes de redirecionar (ms)
-  // ─────────────────────────────────────────────────────────────────────────
+  // ═══════════════════════════════════════════════════
+  //  CONFIGURAÇÕES
+  // ═══════════════════════════════════════════════════
+  const AFFILIATE_URL = 'https://t.ajrkmx1.com/205192/8780/0?aff_sub5=SF_006OG000004lmDN';
+  const DURATION_MS   = 3500;   // duração da barra em ms
+  const REDIRECT_DELAY = 400;   // pausa após 100% antes de redirecionar
 
-  // Translations keyed by BCP-47 language prefix
+  // ═══════════════════════════════════════════════════
+  //  TRADUÇÕES
+  // ═══════════════════════════════════════════════════
   const i18n = {
     pt: { headline: 'Aguarde... estamos preparando <span>tudo para você</span>.', sub: 'Redirecionando em instantes' },
     en: { headline: 'Please wait... we\'re getting <span>everything ready for you</span>.', sub: 'Redirecting in a moment' },
@@ -259,53 +257,40 @@
     return 'en';
   }
 
-  // Set text
   const lang = getLang();
   const t = i18n[lang] || i18n['en'];
   document.getElementById('headline').innerHTML = t.headline;
   document.getElementById('subtext').textContent  = t.sub;
   document.documentElement.lang = lang;
+  if (['ar','he','fa','ur'].includes(lang)) document.documentElement.dir = 'rtl';
 
-  // RTL support
-  if (['ar', 'he', 'fa', 'ur'].includes(lang)) {
-    document.documentElement.dir = 'rtl';
-  }
-
-  // Progress animation
-  const bar = document.getElementById('bar');
-  const pct = document.getElementById('pct');
+  // ═══════════════════════════════════════════════════
+  //  BARRA DE PROGRESSO
+  // ═══════════════════════════════════════════════════
+  const bar  = document.getElementById('bar');
+  const pct  = document.getElementById('pct');
   const root = document.getElementById('root');
 
-  // Eased progress: slow start, fast middle, slow finish (ease-in-out-like curve)
-  function easeInOut(t) {
-    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-  }
+  function easeInOut(t) { return t < 0.5 ? 2*t*t : -1+(4-2*t)*t; }
 
   let start = null;
   function animate(ts) {
     if (!start) start = ts;
-    const elapsed = ts - start;
-    const raw     = Math.min(elapsed / DURATION_MS, 1);
-    const eased   = easeInOut(raw);
+    const raw    = Math.min((ts - start) / DURATION_MS, 1);
+    const eased  = easeInOut(raw);
     const percent = Math.round(eased * 100);
-
-    bar.style.width = percent + '%';
-    pct.textContent = percent + '%';
-
+    bar.style.width   = percent + '%';
+    pct.textContent   = percent + '%';
     if (raw < 1) {
       requestAnimationFrame(animate);
     } else {
-      // Slight pause then redirect
       setTimeout(() => {
         root.classList.add('fade-out');
-        setTimeout(() => {
-          window.location.href = AFFILIATE_URL;
-        }, 700);
+        setTimeout(() => { window.location.href = AFFILIATE_URL; }, 700);
       }, REDIRECT_DELAY);
     }
   }
 
-  // Start after entrance animations settle
   setTimeout(() => requestAnimationFrame(animate), 950);
 </script>
 </body>
